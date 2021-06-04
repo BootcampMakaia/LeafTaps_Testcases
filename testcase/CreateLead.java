@@ -1,10 +1,9 @@
 package testcase;
 
-import java.time.Duration;
 
+import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class CreateLead {
@@ -14,7 +13,7 @@ public class CreateLead {
 		ChromeDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("http://leaftaps.com/opentaps/");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		driver.findElement(By.id("username")).sendKeys("DemoSalesManager");
 		driver.findElement(By.id("password")).sendKeys("crmsfa");
 		driver.findElement(By.className("decorativeSubmit")).click();
@@ -24,13 +23,8 @@ public class CreateLead {
 		driver.findElement(By.id("createLeadForm_companyName")).sendKeys("TestLeaf");
 		driver.findElement(By.id("createLeadForm_firstName")).sendKeys("Hari");
 		driver.findElement(By.id("createLeadForm_lastName")).sendKeys("R");
+		driver.findElement(By.id("createLeadForm_primaryPhoneNumber")).sendKeys("99");
 		driver.findElement(By.name("submitButton")).click();
 		driver.close();
 }
 }
-
-
-
-
-
-
